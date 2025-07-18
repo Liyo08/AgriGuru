@@ -1,0 +1,119 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+background: linear-gradient(135deg, #a8edea, #fed6e3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #2d6a4f;
+  position: relative;
+  z-index: 2;
+}
+
+select {
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #ffffff;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  outline: none;
+  border: none;
+  position: relative;
+  z-index: 2;
+}
+
+#weatherResult {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.forecast-container {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.forecast-card {
+  background: rgba(255,255,255,0.8);
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  min-width: 100px;
+  text-align: center;
+}
+
+/* Weather Effects */
+#weather-effects {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.cloud {
+  position: absolute;
+  width: 100px;
+  height: 60px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.85;
+  box-shadow: -40px 20px 0 white, -80px 10px 0 white, -60px 30px 0 white;
+  animation: floatClouds 60s linear infinite;
+}
+
+@keyframes floatClouds {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(200vw); }
+}
+
+.sun {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, #ffd54f 60%, transparent 60%);
+  border-radius: 50%;
+  box-shadow: 0 0 40px #ffd54f;
+  animation: pulseSun 3s ease-in-out infinite;
+}
+
+@keyframes pulseSun {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.rain-drop {
+  position: absolute;
+  width: 2px;
+  height: 15px;
+  background: #7ec8e3;
+  animation: rain-fall 2s linear infinite;
+}
+
+@keyframes rain-fall {
+  0% { top: -10%; opacity: 0; }
+  30% { opacity: 1; }
+  100% { top: 110%; opacity: 0; }
+}

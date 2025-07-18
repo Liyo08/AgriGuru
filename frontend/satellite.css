@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  background: #f0f8f5;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+header {
+  background: #0d875b;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.controls {
+  background: #e9f8f1;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+#layerSelector {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  border: 1px solid #b8e0d2;
+  background: white;
+  cursor: pointer;
+}
+
+#map {
+  height: 90vh;
+  width: 100%;
+  border-top: 2px solid #cce3d3;
+}
+
+/* Buttons under satellite module */
+#satellite button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2d6a4f;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#satellite button:hover {
+  background-color: #1b4332;
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriGuru – User Input</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f9f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #2d6a4f;
+    }
+
+    form label {
+      display: block;
+      margin-top: 15px;
+      color: #333;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #2d6a4f;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #1b4332;
+    }
+
+    #output {
+      margin-top: 20px;
+      padding: 10px;
+      color: rgb(38, 42, 40);
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>AgriGuru Advisory – Input Form</h1>
+    <form id="agriForm"> <label for="location">Location:</label> <input type="text" id="location"
+        placeholder="Enter your village or city" required />
+
+      <label for="soil">Soil Type:</label>
+      <select id="soil" required>
+        <option value="">-- Select Soil Type --</option>
+        <option value="loamy">Loamy</option>
+        <option value="clayey">Clayey</option>
+        <option value="sandy">Sandy</option>
+        <option value="silty">Silty</option>
+        <option value="peaty">Peaty</option>
+      </select>
+
+      <label for="season">Current Month/Season:</label>
+      <input type="text" id="season" placeholder="e.g.monsoon,winter,summer" required />
+
+
+
+      <button type="submit">Submit</button>
+    </form>
+    <div id="output"></div>
+  </div>
+  <script src="input.js"></script>
+</body>
+
+</html>

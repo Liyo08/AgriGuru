@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Satellite Insights – AgriGuru</title>
+  <link rel="stylesheet" href="satellite.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-tilelayer-gl"></script>
+</head>
+<body>
+<header><h1>Satellite Insights</h1></header>
+<div class="controls">
+  <label>Layer:</label>
+  <select id="layerSelector">
+    <option value="ndvi">NDVI (Vegetation)</option>
+    <option value="rainfall">Rainfall</option>
+  </select>
+</div>
+<div id="map"></div>
+<script src="satellite.js"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AgriGuru – Market Price Advisory</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 720px;
+      margin: 2rem auto;
+    }
+    label, select, button {
+      font-size: 1rem;
+      margin-top: .5rem;
+    }
+    canvas {
+      max-width: 100%;
+    }
+    #status {
+      margin-top: .75rem;
+      font-weight: 600;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h1>🌾 AgriGuru – Market Price Advisory</h1>
+
+<label for="commodity">Commodity:</label>
+<select id="commodity">
+  <option>Tomato</option>
+  <option>Onion</option>
+  <option>Ginger</option>
+  <option>Potato</option>
+  <option>Gur(Jaggery)</option>
+</select><br>
+
+<label for="market">Market:</label>
+<select id="market">
+  <option>THIRUVANANTHAPURAM</option>
+  <option>PARASSALA</option>
+  <option>NEYATTINKARA</option>
+  <option>KOCHI</option>
+  <option>COIMBATORE</option>
+  <option>PUNE</option>
+</select><br>
+
+<button id="load">Load Prices</button>
+
+<div id="output">
+  <canvas id="chart" height="200"></canvas>
+  <p id="status"></p>
+</div>
+
+<script>
+  const API_KEY = "579b464db66ec23bdd0000010b8b5697910a453d433dc9affde410b4";
+  const RID = "9ef84268-d588-465a-a308-a864a43d0070";
+  let chart;
+
+  document.getElementById("load").addEventListener("click", async () => {
+    const commodity = document.getElementById("commodity").value;
+    const market = document.getElementById("market").value.toUpperCase();
+
+    const url = `https://api.data.gov.in/resource/${RID}?api-key=${API_KEY}&format=json&limit=500&filters[commodity]=${encodeURIComponent(commodity)}&filters[market]=${encodeURIComponent(market)}`;
+
+    const statusEl = document.getElementById("status");
+    statusEl.textContent = "⏳ Fetching…";
+
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      const { records } = await res.json();
+      if (!records.length) {
+        statusEl.textContent = "⚠ No data for that combination.";
+        if (chart) chart.destroy();
+        return;
+      }
+
+      records.sort((a, b) => new Date(b.arrival_date) - new Date(a.arrival_date));
+      const dates = records.map(r => r.arrival_date).reverse();
+      const prices = records.map(r => +r.modal_price).reverse();
+
+      if (chart) chart.destroy();
+      chart = new Chart(document.getElementById("chart"), {
+        type: "line",
+        data: {
+          labels: dates,
+          datasets: [{
+            label: `${commodity} modal price (₹/qtl)`,
+            data: prices,
+            borderColor: "#1d8bf1",
+            backgroundColor: "rgba(29,139,241,.15)",
+            tension: 0.3,
+            fill: true
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { display: false }
+          },
+          scales: {
+            x: {
+              ticks: {
+                autoSkip: true,
+                maxTicksLimit: 8
+              }
+            },
+            y: {
+              title: {
+                display: true,
+                text: "₹ / quintal"
+              }
+            }
+          }
+        }
+      });
+
+      const max = Math.max(...prices);
+      const maxDate = dates[prices.indexOf(max)];
+      statusEl.textContent = `💰 Highest modal price in last ${prices.length} records: ₹${max.toLocaleString()} on ${maxDate}`;
+    } catch (err) {
+      console.error(err);
+      statusEl.textContent = "❌ Error – check console or API limits.";
+      if (chart) chart.destroy();
+    }
+  });
+</script>
+
+</body>
+</html>

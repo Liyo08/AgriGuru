@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriGuru - Intelligent Farming Guide</title>
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="navbar-left">
+      <h1>AgriGrow</h1>
+    </div>
+    <div class="navbar-right">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="types.html">Types</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-overlay">
+      <h1>Empowering Farmers Through AI & Insights</h1>
+      <p>Your intelligent companion for smarter agricultural decisions</p>
+    </div>
+  </section>
+
+  <section class="about-section" id="who">
+  <div class="about-container">
+    <div class="about-text">
+      <h2>Who Are We?</h2>
+      <p>
+        We are more than a team — we are a movement. A collective of dreamers, doers, and digital farmers united by a
+        single belief: <strong>technology should empower, not exclude</strong>. At AgriGuru, engineers sit beside environmentalists,
+        designers brainstorm with farmers, and coders write not just code — but change.
+      </p>
+      <p>
+        Some of us grew up watching the monsoons decide our harvests. Others spent years coding algorithms in buzzing tech
+        labs. But what binds us together is our shared purpose — to transform agriculture into a field of opportunity
+        through AI, data, and empathy.
+      </p>
+      <p>
+        Our journey isn't confined to offices or whiteboards. We've stood in the heat of farmlands, spoken to elders who
+        still rely on lunar calendars, and listened to youth who dream of farming with drones. <strong>AgriGuru was born from
+        those voices</strong>, shaped by those soils, and built for those heroes — the farmers.
+      </p>
+      <p>
+        Join us on this journey to empower farmers with the knowledge and tools they need to thrive in an ever-changing
+        world. Together, we can cultivate a future where every farmer has the resources to succeed.
+      </p>
+    </div>
+    <div class="about-image">
+      <img src="https://i.pinimg.com/736x/62/c0/0a/62c00aa217ab8c8d719f75fd7b52addb.jpg" alt="Agri Team">
+    </div>
+  </div>
+</section>
+
+<section class="about-section" id="why">
+  <div class="about-container">
+    <div class="about-text">
+      <h2>Why AgriGuru?</h2>
+      <p>
+        Agriculture is the backbone of our nation — yet millions of farmers struggle with uncertainty: What crop should I
+        plant? Will it rain next week? What price will I get in the market? These are real problems that need real-time,
+        localized answers.
+      </p>
+      <p>
+        AgriGuru steps in as an intelligent assistant built for every farmer — from seed to sale. Using open data,
+        satellite intelligence, and AI-powered models, our platform delivers smart recommendations, weather alerts, and
+        market trends in a user-friendly format.
+      </p>
+      <p>
+        What makes us different? We don’t just show data — we translate it into decisions. We don’t need fancy sensors or
+        IoT — just a phone and intent to grow better. AgriGuru is not just an app. It's a farming revolution in your
+        pocket.
+      </p>
+    </div>
+    <div class="about-image">
+      <img src="https://i.pinimg.com/736x/c2/aa/12/c2aa1243cc7877005682b962e48cc134.jpg" alt="Why AgriGuru">
+    </div>
+  </div>
+</section>
+
+
+<section class="modules" id="modules">
+  <h2>Explore Our Modules</h2>
+  <div class="card-container">
+    <a href="input.html" class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/4249/4249770.png" alt="Crop Companion Icon">
+      <h3>Crop Companion</h3>
+      <p>Get AI-powered crop recommendations for your area</p>
+    </a>
+
+    <a href="weather.html" class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1779/1779940.png" alt="Weather Icon">
+      <h3>Weather Watch</h3>
+      <p>See accurate local forecasts for planning better</p>
+    </a>
+
+    <a href="croptype.html" class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/851/851171.png" alt="Crop Explorer Icon">
+      <h3>AgriClassify</h3>
+      <p>Classifying crops for better understanding & decisions</p>
+    </a>
+
+    <a href="satellite.html" class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1865/1865269.png" alt="Satellite Icon">
+      <h3>Satellite Insights</h3>
+      <p>View NDVI or rainfall overlays</p>
+    </a>
+
+    <a href="market.html" class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1170/1170576.png" alt="Market Link Icon">
+      <h3>Market Link</h3>
+      <p>Access live mandi prices and connect to buyers</p>
+    </a>
+  </div>
+</section>
+
+
+
+
+  <footer>
+    <p>© 2025 AgriGuru Hackathon Project</p>
+  </footer>
+
+
+  <!-- Chatbot Button -->
+  <button id="chatbot-button" title="Chat with us!">💬</button>
+
+  <!-- Chatbot Iframe -->
+  <iframe id="chatbot-frame" src="https://www.chatbase.co/chatbot-iframe/01-udzrFsJo-XjqUJSBeO" width="360"
+    height="500"></iframe>
+  <script>
+    const chatbotBtn = document.getElementById("chatbot-button");
+    const chatbotFrame = document.getElementById("chatbot-frame");
+
+    chatbotBtn.addEventListener("click", () => {
+      const isActive = chatbotFrame.classList.contains("active");
+      if (isActive) {
+        chatbotFrame.classList.remove("active");
+        setTimeout(() => {
+          chatbotFrame.style.display = "none";
+        }, 300);
+      } else {
+        chatbotFrame.style.display = "block";
+        setTimeout(() => {
+          chatbotFrame.classList.add("active");
+        }, 10);
+      }
+    });
+  </script>
+
+
+</body>
+
+</html>
