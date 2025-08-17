@@ -27,9 +27,10 @@ AgriGuru is a web-based solution developed to bridge the gap between modern tech
 
 ## 👨‍💻 Team
 
-Team of 4 passionate developers including myself who collaborated on ideation, design, and development within a tight hackathon deadline.  
+### Team of 4 passionate developers including myself who collaborated on ideation, design, and development within a tight hackathon deadline.  
 Participating in the hackathon helped sharpen our problem-solving skills under pressure and strengthened our resolve to build tech-driven solutions that address real-world challenges in agriculture.
 
 ---
+
 
 
